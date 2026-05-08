@@ -1,9 +1,9 @@
-FROM openjdk:17
+FROM eclipse-temurin:17
 
 WORKDIR /app
 
-COPY . .
+COPY target/my-app-1.0.jar app.jar
 
-RUN javac src/main/java/com/example/Application.java
+EXPOSE 8080
 
-CMD ["java", "-cp", "src/main/java", "com.example.Application"]
+ENTRYPOINT ["java","-jar","app.jar"]
